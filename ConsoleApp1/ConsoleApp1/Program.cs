@@ -2,21 +2,35 @@
 
 namespace ConsoleApp1
 {
-    delegate int ttt(int number);
-   
-     class Test
+    
+    public delegate void OneKeyPressedHandler<TEventArgs>(char Sign);
+    public class Test
     {
-      
+        
+        public event OneKeyPressedHandler<char> OneKeyPressed;
 
+        public char Run()
+        {
+            char Sign = Convert.ToChar(Console.ReadLine());
+            while (Sign!='c')
+            {
+                 Sign = Convert.ToChar(Console.ReadLine());
+            }
+            return Sign;
+            OneKeyPressed(Sign);
+        }
+       
     }
+       
     class Program
     {
         static void Main(string[] args)
         {
-            ttt Test = Square;
-            int res = Test(4);
-            Console.WriteLine(res);
+
+            Test obj = new Test();
+            Console.WriteLine(obj.Run());
+            Console.ReadKey();
         }
-        static int Square(int number) => number * number;
+        //static int Square(int number) => number * number;
     }
 }
