@@ -56,7 +56,8 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Test test = new Test();
-            test.OneKeyPressed += test_OneKeyPressed;
+            //Вот эта штука отказывается работать
+          //  test.OneKeyPressed += test_OneKeyPressed;
             test.sign = test.Run();
         }
         static void test_OneKeyPressed(object sender, OneKeyPressedEventArgs e)
